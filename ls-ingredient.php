@@ -83,6 +83,13 @@ if( !class_exists( 'LS_Ingredient' ) ){
 		}
 
 		public function ls_ingredient_settings_page(){
+			if( !current_user_can( 'manage_options' ) ){
+				return;
+			}
+			if( isset( $_GET['settings-updated'] ) ){
+				add_settings_error( 'ls_ingredient_options', 'ls_ingredient_message', 'Settings Saved', 'success' );
+			}
+			settings_errors( 'ls_ingredient_options' );
 			require( LS_INGREDIENT_PATH . 'views/settings-page.php' );
 		}
 	}

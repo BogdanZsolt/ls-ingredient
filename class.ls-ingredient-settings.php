@@ -10,7 +10,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 		}
 
 		public function admin_init(){
-			register_setting( 'ls_ingredient_group', 'ls_ingredient_options' );
+			register_setting( 'ls_ingredient_group', 'ls_ingredient_options', array( $this, 'ls_ingredient_validate' ) );
 
 			add_settings_section(
 				'ls_ingredient_main_section',
@@ -55,7 +55,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 					'items'	=> array(
 						'style-1',
 						'style-2',
-						'la-saphire'
+						'lasaphire'
 					),
 					'label_for'	=> 'ls_ingredient_style',
 				),
@@ -104,6 +104,14 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 				<?php endforeach; ?>
 				</select>
 			<?php
+		}
+
+		public function ls_ingredient_validate( $input ){
+			$new_input = array();
+			foreach( $input as $key => $value ){
+				$new_input[$key] = sanitize_text_field( $value );
+			}
+			return $new_input;
 		}
 
 	}
