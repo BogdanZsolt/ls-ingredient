@@ -16,11 +16,11 @@ if( !class_exists( 'LS_Ingredient_Post_type' ) ){
 			register_post_type(
 				'ls-ingredient',
 				array(
-					'label'	=> 'Ingredient',
-					'description'	=> 'Ingredients',
+					'label'	=> esc_html__( 'Ingredient', 'ls-ingredient' ),
+					'description'	=> esc_html__( 'Ingredients', 'ls-ingredient' ),
 					'labels'	=> array(
-						'name'	=> 'Ingredients',
-						'singular_name'	=> 'Ingredient',
+						'name'	=> esc_html__( 'Ingredients', 'ls-ingredient' ),
+						'singular_name'	=> esc_html__( 'Ingredient', 'ls-ingredient' ),
 					),
 					'public'	=> true,
 					'supports'	=> array( 'title', 'editor', 'thumbnail' ),
@@ -75,7 +75,7 @@ if( !class_exists( 'LS_Ingredient_Post_type' ) ){
 		public function add_meta_boxes(){
 			add_meta_box(
 				'ls_ingredient_meta_box',
-				'Ingredient Options',
+				esc_html__( 'Ingredient Options', 'ls-ingredient'),
 				array( $this, 'add_inner_meta_boxes' ),
 				'ls-ingredient',
 				'normal',
@@ -110,7 +110,7 @@ if( !class_exists( 'LS_Ingredient_Post_type' ) ){
 				$new_latin_name = sanitize_text_field( $_POST['ls_ingredient_latin_name'] );
 
 				if( empty( $new_latin_name ) ){
-					update_post_meta( $post_id, 'ls_ingredient_latin_name', 'Add name' );
+					update_post_meta( $post_id, 'ls_ingredient_latin_name', esc_html__( 'Add name', 'ls-ingredient') );
 				} else {
 					update_post_meta( $post_id, 'ls_ingredient_latin_name', $new_latin_name, $old_latin_name );
 				}

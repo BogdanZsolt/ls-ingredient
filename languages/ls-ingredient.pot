@@ -1,0 +1,156 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LS "
+"Ingredient v1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"Translator Name "
+"<translations@example."
+"com>\n"
+"POT-Creation-Date: "
+"2022-04-10 07:45+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your "
+"Name <you@example.com>\n"
+"Language-Team: Your Team "
+"<translations@example."
+"com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit "
+"3.0.1\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+"X-Poedit-"
+"SearchPathExcluded-0: "
+"node_modules\n"
+
+#: class.ls-ingredient-settings.php:17
+msgid "How does it work?"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:24
+msgid ""
+"Other Plugin Options"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:31
+msgid "Shortcode"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:39
+msgid ""
+"Display Letters Filter"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:50
+msgid "Ingredient Style"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:67
+msgid ""
+"Use the shortcode "
+"[ls_ingredients_list] to "
+"display the ingredients "
+"list in any page"
+msgstr ""
+
+#: class.ls-ingredient-settings.php:84
+msgid ""
+"Whether to display "
+"letters filter or not"
+msgstr ""
+
+#: ls-ingredient.php:72
+msgid "Ingredients Options"
+msgstr ""
+
+#: ls-ingredient.php:73
+#: post-types/class.ls-ingredient-cpt.php:20
+#: post-types/class.ls-ingredient-cpt.php:22
+msgid "Ingredients"
+msgstr ""
+
+#: ls-ingredient.php:82
+#: ls-ingredient.php:83
+msgid "Manage Ingredients"
+msgstr ""
+
+#: ls-ingredient.php:92
+#: ls-ingredient.php:93
+msgid "Add New Ingredient"
+msgstr ""
+
+#: ls-ingredient.php:106
+msgid "Settings Saved "
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:19
+#: post-types/class.ls-ingredient-cpt.php:23
+msgid "Ingredient"
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:64
+#: views/ls-ingredient_metabox.php:9
+msgid "Latin Name"
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:65
+msgid "Featured image"
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:66
+msgid "Date"
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:78
+msgid "Ingredient Options"
+msgstr ""
+
+#: post-types/class.ls-ingredient-cpt.php:113
+msgid "Add name"
+msgstr ""
+
+#: views/ls-ingredient_shortcode.php:48
+msgid "contain"
+msgstr ""
+
+#: views/settings-page.php:7
+msgid "Main Options"
+msgstr ""
+
+#: views/settings-page.php:8
+msgid "Additional Options"
+msgstr ""
+
+#: views/settings-page.php:19
+msgid "Save Settings"
+msgstr ""

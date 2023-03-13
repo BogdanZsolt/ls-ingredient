@@ -23,6 +23,8 @@ if( !class_exists( 'LS_Ingredient' ) ){
 		function __construct(){
 			$this->define_constants();
 
+			$this->load_textdomain();
+
 			add_action( 'admin_menu', array( $this, 'add_menu' ) );
 
 			require_once( LS_INGREDIENT_PATH . 'post-types/class.ls-ingredient-cpt.php' );
@@ -30,6 +32,12 @@ if( !class_exists( 'LS_Ingredient' ) ){
 
 			require_once( LS_INGREDIENT_PATH . 'class.ls-ingredient-settings.php' );
 			$LS_Ingredient_Settings = new LS_Ingredient_Settings();
+
+			require_once( LS_INGREDIENT_PATH . 'shortcodes/class.ls-ingredient-shortcode.php' );
+			$LS_Ingredient_Shortcode = new LS_Ingredient_Shortcode();
+
+			add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 999 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts') );
 		}
 
 		public function define_constants(){
@@ -48,13 +56,33 @@ if( !class_exists( 'LS_Ingredient' ) ){
 		}
 
 		public static function uninstall(){
+			delete_option( 'ls_ingredient_options');
 
+			$posts = get_posts(
+				array(
+					'post_type'	=> 'ls-ingredient',
+					'number_posts'	=> -1,
+					'post_status' => 'any'
+				)
+			);
+
+			foreach( $posts as $post ){
+				wp_delete_post( $post->ID, true );
+			}
+		}
+
+		public function load_textdomain(){
+			load_plugin_textdomain(
+				'ls-ingredient',
+				false,
+				dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+			);
 		}
 
 		public function add_menu(){
 			add_menu_page(
-				'Ingredients Options',
-				'Ingredients',
+				esc_html__( 'Ingredients Options', 'ls-ingredient' ),
+				esc_html__( 'Ingredients', 'ls-ingredient' ),
 				'manage_options',
 				'ls_ingredient_admin',
 				array( $this, 'ls_ingredient_settings_page' ),
@@ -63,8 +91,8 @@ if( !class_exists( 'LS_Ingredient' ) ){
 
 			add_submenu_page(
 				'ls_ingredient_admin',
-				'Manage Ingredients',
-				'Manage Ingredients',
+				esc_html__( 'Manage Ingredients', 'ls-ingredient' ),
+				esc_html__( 'Manage Ingredients', 'ls-ingredient' ),
 				'manage_options',
 				'edit.php?post_type=ls-ingredient',
 				null,
@@ -73,8 +101,8 @@ if( !class_exists( 'LS_Ingredient' ) ){
 
 			add_submenu_page(
 				'ls_ingredient_admin',
-				'Add New Ingredient',
-				'Add New Ingredient',
+				esc_html__( 'Add New Ingredient', 'ls-ingredient' ),
+				esc_html__( 'Add New Ingredient', 'ls-ingredient' ),
 				'manage_options',
 				'post-new.php?post_type=ls-ingredient',
 				null,
@@ -87,10 +115,22 @@ if( !class_exists( 'LS_Ingredient' ) ){
 				return;
 			}
 			if( isset( $_GET['settings-updated'] ) ){
-				add_settings_error( 'ls_ingredient_options', 'ls_ingredient_message', 'Settings Saved', 'success' );
+				add_settings_error( 'ls_ingredient_options', 'ls_ingredient_message', esc_html__( 'Settings Saved ', 'ls-ingredient' ), 'success' );
 			}
 			settings_errors( 'ls_ingredient_options' );
 			require( LS_INGREDIENT_PATH . 'views/settings-page.php' );
+		}
+
+		public function register_scripts(){
+			wp_register_script( 'ls-ingredient-main-js', LS_INGREDIENT_URL . 'build/index.js', array(), LS_INGREDIENT_VERSION, true );
+			wp_register_style( 'ls-ingredient-main-css', LS_INGREDIENT_URL . 'build/index.css', array(), LS_INGREDIENT_VERSION, 'all' );
+		}
+
+		public function register_admin_scripts(){
+			global $typenow;
+			if( $typenow == 'ls-ingredient'){
+				wp_enqueue_style( 'ls-ingredient-admin', LS_INGREDIENT_URL . 'build/style-index.css' );
+			}
 		}
 	}
 }

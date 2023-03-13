@@ -14,21 +14,21 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 
 			add_settings_section(
 				'ls_ingredient_main_section',
-				'How does it work?',
+				esc_html__( 'How does it work?', 'ls-ingredient' ),
 				null,
 				'ls_ingredient_page1',
 			);
 
 			add_settings_section(
 				'ls_ingredient_second_section',
-				'Other Plugin Options',
+				esc_html__( 'Other Plugin Options', 'ls-ingredient' ),
 				null,
 				'ls_ingredient_page2',
 			);
 
 			add_settings_field(
 				'ls_ingredient_shortcode',
-				'Shortcode',
+				esc_html__( 'Shortcode', 'ls-ingredient' ),
 				array( $this, 'ls_ingredient_shortcode_callback' ),
 				'ls_ingredient_page1',
 				'ls_ingredient_main_section',
@@ -36,7 +36,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 
 			add_settings_field(
 				'ls_ingredient_filter',
-				'Display Letters Filter',
+				esc_html__( 'Display Letters Filter', 'ls-ingredient' ),
 				array( $this, 'ls_ingredient_filter_callback' ),
 				'ls_ingredient_page2',
 				'ls_ingredient_second_section',
@@ -47,7 +47,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 
 			add_settings_field(
 				'ls_ingredient_style',
-				'Ingredient Style',
+				esc_html__( 'Ingredient Style', 'ls-ingredient' ),
 				array( $this, 'ls_ingredient_style_callback' ),
 				'ls_ingredient_page2',
 				'ls_ingredient_second_section',
@@ -64,7 +64,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 
 		public function ls_ingredient_shortcode_callback(){
 			?>
-				<span>Use the shortcode [ls_ingredient] to display the ingredients list in any page</span>
+				<span><?php esc_html_e( 'Use the shortcode [ls_ingredients_list] to display the ingredients list in any page', 'ls-ingredient' ); ?></span>
 			<?php
 		}
 
@@ -81,7 +81,7 @@ if( !class_exists( 'LS_Ingredient_Settings' ) ){
 						}
 					?>
 				>
-				<label for="ls_ingredient_filter">Whether to display letters filter or not</label>
+				<label for="ls_ingredient_filter"><?php esc_html_e( 'Whether to display letters filter or not', 'ls-ingredient' ); ?></label>
 			<?php
 		}
 
