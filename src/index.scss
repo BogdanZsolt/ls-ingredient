@@ -58,12 +58,16 @@
   opacity: 0;
 
   @media (min-width: 768px){
-   flex-direction: row;
+    flex-direction: row;
   }
 
   &.onvisible {
-   display: flex;
-   opacity: 1;
+    display: flex;
+    opacity: 1;
+
+    @media (min-width: 768px){
+      gap: 1rem;
+    }
   }
 
   &--photo {
@@ -71,8 +75,8 @@
    max-width: 100%;
 
    @media (min-width: 768px) {
-    flex: 0 0 15%;
-    max-width: 15%;
+    flex: 1 1 12%;
+    max-width: 12%;
    }
   }
 
@@ -81,8 +85,8 @@
    max-width: 100%;
 
    @media(min-width: 768px){
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 18%;
+    max-width: 18%;
    }
   }
 
@@ -101,8 +105,8 @@
    max-width: 100%;
 
    @media(min-width: 768px){
-    flex: 0 0 15%;
-    max-width: 15%;
+    flex: 0 0 20%;
+    max-width: 20%;
    }
   }
  }

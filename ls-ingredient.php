@@ -33,6 +33,9 @@ if( !class_exists( 'LS_Ingredient' ) ){
 			require_once( LS_INGREDIENT_PATH . 'class.ls-ingredient-settings.php' );
 			$LS_Ingredient_Settings = new LS_Ingredient_Settings();
 
+			require_once( LS_INGREDIENT_PATH . 'wc-modifications/class.wc-modifications.php');
+			$LS_Ingredient_wc_modifications = new LS_Ingredient_wc_modifications();
+
 			require_once( LS_INGREDIENT_PATH . 'shortcodes/class.ls-ingredient-shortcode.php' );
 			$LS_Ingredient_Shortcode = new LS_Ingredient_Shortcode();
 

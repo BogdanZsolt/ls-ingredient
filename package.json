@@ -10,7 +10,8 @@
     "lint:js": "wp-scripts lint-js",
     "packages-update": "wp-scripts packages-update",
     "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "changed": "zip ./changed-files.zip $(git status --porcelain=v1 -u | awk {'print $2'})"
   },
   "prettier": "@wordpress/prettier-config",
   "stylelint": {
